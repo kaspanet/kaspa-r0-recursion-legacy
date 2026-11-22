@@ -1,0 +1,24 @@
+[package]
+name = "kaspa-r0-recursion-legacy"
+version = "0.1.0"
+edition = "2021"
+description = "Unsound legacy RISC Zero recursion circuit for Kaspa consensus compatibility only"
+repository = "https://github.com/kaspanet/kaspa-r0-recursion-legacy"
+license = "Apache-2.0"
+readme = "README.md"
+build = false
+include = ["/src/**", "/LICENSE", "/README.md"]
+
+[lib]
+name = "risc0_circuit_recursion"
+path = "src/lib.rs"
+
+[dependencies]
+risc0-zkp = { version = "=3.0.4", default-features = false }
+# Pin the RISC Zero dependencies of risc0-zkp to Rusty Kaspa's versions.
+risc0-core = { version = "=3.0.1", default-features = false }
+risc0-zkvm-platform = { version = "=2.2.2", default-features = false }
+
+[lints.rust]
+# These upstream feature gates stay disabled in the port.
+unexpected_cfgs = { level = "deny", check-cfg = ['cfg(feature, values("prove", "std", "test"))'] }
