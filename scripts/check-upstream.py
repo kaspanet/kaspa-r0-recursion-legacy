@@ -23,9 +23,9 @@ SOURCES = {
 METADATA = {"Cargo.lock", "Cargo.toml", "LICENSE", "README.md"}
 GENERATED_METADATA = {".cargo_vcs_info.json", "Cargo.toml.orig"}
 DEPENDENCIES = {
-    "risc0-core": {"version": "=3.0.1", "default-features": False},
-    "risc0-zkp": {"version": "=3.0.4", "default-features": False},
-    "risc0-zkvm-platform": {"version": "=2.2.2", "default-features": False},
+    "risc0-core": {"version": "=3.0.2", "default-features": False},
+    "risc0-zkp": {"version": "=3.0.6", "default-features": False},
+    "risc0-zkvm-platform": {"version": "=2.2.3", "default-features": False},
 }
 
 

@@ -4,7 +4,9 @@
 
 This crate packages the recursion circuit and control data used by the Rusty Kaspa `v2.1.0` STARK opcode. The seven files under `src/` are copied byte for byte from the published `risc0-circuit-recursion` 4.0.4 archive. The archive identifies RISC Zero commit `ba889fc` as its source. Rusty Kaspa's lockfile records the archive's SHA-256 as `2347e909c6b2a65584b5898f3802eec5b8c1b4b45329edfdd8587b6a04dd3357`. [Published archive](https://static.crates.io/crates/risc0-circuit-recursion/risc0-circuit-recursion-4.0.4.crate) · [Upstream source](https://github.com/risc0/risc0/tree/ba889fc049830b777de63fddbeea5f9776618d7d/risc0/circuit/recursion) · [Rusty Kaspa lockfile](https://github.com/kaspanet/rusty-kaspa/blob/v2.1.0/Cargo.lock)
 
-The verifier-only library is named `risc0_circuit_recursion`. It uses the same RISC Zero dependency versions as Rusty Kaspa `v2.1.0` (`risc0-zkp` `3.0.4`, `risc0-core` `3.0.1`, and `risc0-zkvm-platform` `2.2.2`).
+The verifier-only library is named `risc0_circuit_recursion`. Its dependency pins differ from Rusty Kaspa `v2.1.0` so it can share a Cargo dependency graph with the patched Groth16 SDK. The pins move from `risc0-zkp` `3.0.4` to `3.0.6`, `risc0-core` `3.0.1` to `3.0.2`, and `risc0-zkvm-platform` `2.2.2` to `2.2.3`.
+
+Comparing the published crate sources confirmed that the STARK verifier implementation called by Kaspa, BabyBear field arithmetic, Poseidon2, and CPU SHA-256 match byte for byte across those versions. The digest and SHA-256 modules have equivalent `Debug` formatting edits. The platform edits cover the guest allocator and guest syscall alignment checks. The native Windows opcode tests passed with the updated pins.
 
 ## Verify the package
 

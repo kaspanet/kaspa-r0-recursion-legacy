@@ -14,10 +14,10 @@ name = "risc0_circuit_recursion"
 path = "src/lib.rs"
 
 [dependencies]
-risc0-zkp = { version = "=3.0.4", default-features = false }
-# Pin the RISC Zero dependencies of risc0-zkp to Rusty Kaspa's versions.
-risc0-core = { version = "=3.0.1", default-features = false }
-risc0-zkvm-platform = { version = "=2.2.2", default-features = false }
+risc0-zkp = { version = "=3.0.6", default-features = false }
+# Keep the shared RISC Zero dependencies aligned with Rusty Kaspa.
+risc0-core = { version = "=3.0.2", default-features = false }
+risc0-zkvm-platform = { version = "=2.2.3", default-features = false }
 
 [lints.rust]
 # These upstream feature gates stay disabled in the port.
